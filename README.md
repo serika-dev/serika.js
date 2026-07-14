@@ -9,13 +9,15 @@ A highly optimized TypeScript library for the SerikaCord API — Discord v10 com
 - **Optimized HTTP client** — concurrency limiting, automatic retry with exponential backoff + jitter, global rate limit handling, keep-alive connection reuse
 - **Gateway WebSocket client** — HELLO → IDENTIFY → READY lifecycle, heartbeat with zombie detection, RESUME on reconnect, exponential backoff
 - **TypeScript-first** — full type definitions for all request/response payloads
-- **Zero runtime dependencies** (except `ws` for Node < 22 WebSocket support)
+- **Zero runtime dependencies** in Node 22+, Bun, Deno, and browsers. Optional `ws` peer dependency for Node 18-21 WebSocket support
 - **Tree-shakeable** ESM
 
 ## Installation
 
 ```bash
 npm install serika.js
+# Node 18-21 also needs the optional ws peer dependency:
+npm install serika.js ws
 # or
 bun add serika.js
 ```
@@ -38,7 +40,7 @@ await client.bot.createMessage('channel-id', {
 });
 
 // Gateway: listen for events
-const gw = client.connectGateway({
+const gw = await client.connectGateway({
   intents: Intents.GUILDS | Intents.GUILD_MESSAGES | Intents.MESSAGE_CONTENT,
 });
 
