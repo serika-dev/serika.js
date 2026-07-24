@@ -15,11 +15,11 @@ A highly optimized TypeScript library for the SerikaCord API — Discord v10 com
 ## Installation
 
 ```bash
-npm install serika.js
+npm install @serikadev/serika.js
 # Node 18-21 also needs the optional ws peer dependency:
-npm install serika.js ws
+npm install @serikadev/serika.js ws
 # or
-bun add serika.js
+bun add @serikadev/serika.js
 ```
 
 ## Quick Start
@@ -27,7 +27,7 @@ bun add serika.js
 ### Bot with REST + Gateway
 
 ```typescript
-import { SerikaClient, Intents } from 'serika.js';
+import { SerikaClient, Intents } from '@serikadev/serika.js';
 
 const client = new SerikaClient({
   token: 'your-bot-token',
@@ -58,7 +58,7 @@ gw.onReady(() => {
 ### Client API (user session)
 
 ```typescript
-import { SerikaClient } from 'serika.js';
+import { SerikaClient } from '@serikadev/serika.js';
 
 const client = new SerikaClient({
   authToken: 'your-auth-token',
@@ -164,7 +164,7 @@ gw.disconnect(); // graceful
 ### Intents
 
 ```typescript
-import { Intents } from 'serika.js';
+import { Intents } from '@serikadev/serika.js';
 
 Intents.GUILDS           // 1 << 0
 Intents.GUILD_MEMBERS    // 1 << 1
@@ -177,7 +177,7 @@ Intents.MESSAGE_CONTENT  // 1 << 15
 ## Error Handling
 
 ```typescript
-import { HTTPError } from 'serika.js';
+import { HTTPError } from '@serikadev/serika.js';
 
 try {
   await client.bot.createMessage('channel-id', { content: 'Hello!' });
