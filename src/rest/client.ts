@@ -126,7 +126,6 @@ export class ClientAPI {
       method: 'POST',
       path: `${API}/upload/avatar`,
       body: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
     });
   }
 
@@ -137,7 +136,6 @@ export class ClientAPI {
       method: 'POST',
       path: `${API}/upload/banner`,
       body: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
     });
   }
 
